@@ -1,0 +1,188 @@
+/* styles.css - Portfolio Site Base Styles */
+
+/* Reset some default browser styles */
+body, h1, h2, h3, ul, p, img, figure {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & Layout */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f7f7f9;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Main container for centered content */
+.container {
+  max-width: 700px;
+  margin: 60px auto 0 auto;
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: #6c63ff;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.35em;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 14px;
+  font-size: 1.08em;
+}
+
+ul {
+  list-style: disc inside;
+  margin-bottom: 10px;
+}
+
+/* Profile Photo */
+.profile-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  margin-bottom: 18px;
+}
+
+/* Skills Section */
+.skill-icons {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 6px;
+}
+.skill-icons img {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+}
+
+/* Buttons & Links */
+a {
+  color: #6c63ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #5246e2;
+}
+
+button,
+input[type="submit"] {
+  padding: 10px 0;
+  border: none;
+  background: #6c63ff;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+button:hover,
+input[type="submit"]:hover {
+  background: #5246e2;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  font-size: 1em;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+/* Download Button */
+.download {
+  display: block;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.download a {
+  background: #6c63ff;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.download a:hover {
+  background: #5246e2;
+}
+
+/* Social Links */
+.socials {
+  margin-top: 10px;
+}
+.socials a {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+/* Additional Utilities */
+.or {
+  margin: 26px 0 12px 0;
+  color: #999;
+  text-align: center;
+  font-size: 1em;
+}
+
+.entry-title {
+  font-weight: bold;
+}
+
+.entry-meta {
+  font-size: 0.98em;
+  color: #555;
+}
+
+.entry-desc {
+  margin-bottom: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .container {
+    max-width: 95vw;
+    padding: 18px 8px;
+  }
+  .skill-icons {
+    flex-wrap: wrap;
+  }
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+  }
+}

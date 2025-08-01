@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Binay Hazarika</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      animation: slideDown 0.8s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    nav h3 {
+      text-align: center;
+    }
+
+    nav a {
+      color: #667eea;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #764ba2;
+      transform: translateY(-2px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 120px auto 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header */
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    /* Profile Section */
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-radius: 15px;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease;
+      animation: photoFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes photoFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+
+    .bio {
+      flex: 1;
+    }
+
+    .bio p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .bio strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    /* Skills Section */
+    .skills {
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .skills h2 {
+      color: #667eea;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .skill-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .skill-category {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-category h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .skill-icons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skill-icons img {
+      width: 40px;
+      height: 40px;
+      transition: all 0.3s ease;
+      filter: grayscale(100%);
+      border-radius: 8px;
+    }
+
+    .skill-icons img:hover {
+      transform: scale(1.2) rotate(5deg);
+      filter: grayscale(0%);
+    }
+
+    /* Experience Section */
+    .experience {
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out 0.8s both;
+    }
+
+    .experience h2 {
+      color: #667eea;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .experience-item {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      border-left: 4px solid #667eea;
+    }
+
+    .experience-item:hover {
+      transform: translateX(5px);
+    }
+
+    .experience-item h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .experience-item p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Interests Section */
+    .interests {
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out 1s both;
+    }
+
+    .interests h2 {
+      color: #667eea;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .interest-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .interest-item h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .interest-item p {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out 1.2s both;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 100px 20px 40px 20px;
+        padding: 30px 20px;
+      }
+
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .skill-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+      }
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) {
+      top: -40px;
+      right: -40px;
+      animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+      bottom: -30px;
+      left: -30px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="project.html">Projects</a>
+    </h3>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <h1>About Me</h1>
+    
+    <div class="profile-section">
+      <img src="image2.jpeg" alt="Binay Hazarika" class="profile-photo">
+      <div class="bio">
+        <p>
+          Hi, I'm <strong>Binay Hazarika</strong>, an Information Technology graduate passionate about web development and software engineering. I started coding during my graduation and have worked on few web projects as part of my work and personal learning journey.
+        </p>
+        <p>
+          Currently, I maintain an official website where I've been working since August 2020. I love creating simple, useful web applications and enjoy learning new technologies to turn ideas into real digital solutions.
+        </p>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h2>Technical Skills</h2>
+      <div class="skill-categories">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-icons">
+            <img src="html5.png" alt="HTML5" title="HTML5">
+            <img src="css.jpeg" alt="CSS3" title="CSS3">
+            <img src="js.png" alt="JavaScript" title="JavaScript">
+            <img src="react.png" alt="React" title="React">
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <div class="skill-icons">
+            <img src="python.jpeg" alt="Python" title="Python">
+            <img src="js.png" alt="Node.js" title="Node.js">
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Technologies</h3>
+          <div class="skill-icons">
+            <img src="html5.png" alt="Git" title="Git">
+            <img src="css.jpeg" alt="VS Code" title="VS Code">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience">
+      <h2>Professional Experience</h2>
+      <div class="experience-item">
+        <h3>IT Professional & Web Developer</h3>
+        <p>With 14 years of experience in various IT roles, I've developed expertise in creating user-friendly web applications and maintaining digital solutions. My focus is on building simple, effective tools that solve real problems.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Website Maintenance</h3>
+        <p>Currently maintaining an official website since August 2020, ensuring optimal performance and user experience while implementing new features and improvements.</p>
+      </div>
+    </div>
+
+    <div class="interests">
+      <h2>Interests & Passions</h2>
+      <div class="interests-grid">
+        <div class="interest-item">
+          <h3>Web Development</h3>
+          <p>Creating responsive and user-friendly web applications</p>
+        </div>
+        <div class="interest-item">
+          <h3>Learning New Tech</h3>
+          <p>Always exploring the latest technologies and frameworks</p>
+        </div>
+        <div class="interest-item">
+          <h3>Problem Solving</h3>
+          <p>Turning complex ideas into simple digital solutions</p>
+        </div>
+        <div class="interest-item">
+          <h3>User Experience</h3>
+          <p>Focusing on creating intuitive and accessible interfaces</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="resume.html" class="btn btn-primary">View My Resume</a>
+      <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    // Add interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add click effects to buttons
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          // Create ripple effect
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.animation = 'ripple 0.6s linear';
+          ripple.style.pointerEvents = 'none';
+          
+          this.style.position = 'relative';
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+      
+      // Add hover effects to skill icons
+      const skillIcons = document.querySelectorAll('.skill-icons img');
+      skillIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.2) rotate(5deg)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1) rotate(0deg)';
+        });
+      });
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

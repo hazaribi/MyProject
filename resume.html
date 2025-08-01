@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Binay Hazarika</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      animation: slideDown 0.8s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    nav h3 {
+      text-align: center;
+    }
+
+    nav a {
+      color: #667eea;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #764ba2;
+      transform: translateY(-2px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 120px auto 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header */
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    /* Download Section */
+    .download {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .download a {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .download a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Resume Sections */
+    section {
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    section:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    section:nth-child(4) {
+      animation-delay: 1s;
+    }
+
+    section:nth-child(5) {
+      animation-delay: 1.2s;
+    }
+
+    h2 {
+      color: #667eea;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      animation: expandWidth 1s ease-out 1.5s forwards;
+    }
+
+    @keyframes expandWidth {
+      from {
+        width: 0;
+      }
+      to {
+        width: 50px;
+      }
+    }
+
+    /* Resume Items */
+    .resume-item {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .resume-item:hover {
+      transform: translateX(5px);
+      border-left-color: #667eea;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .entry-title {
+      font-weight: bold;
+      color: #667eea;
+      font-size: 1.2em;
+      margin-bottom: 8px;
+    }
+
+    .entry-meta {
+      font-size: 0.95em;
+      color: #666;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .entry-desc {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .skill-category {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-category h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .skill-category h3::after {
+      display: none;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-list li {
+      color: #666;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+
+    /* Education Section */
+    .education-item {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .education-item:hover {
+      transform: translateX(5px);
+      border-left-color: #667eea;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-info h3::after {
+      display: none;
+    }
+
+    .contact-info p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      color: #764ba2;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out 1.4s both;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 100px 20px 40px 20px;
+        padding: 30px 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+      }
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) {
+      top: -40px;
+      right: -40px;
+      animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+      bottom: -30px;
+      left: -30px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="project.html">Projects</a>
+    </h3>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <h1>Resume</h1>
+    
+    <div class="download">
+      <a href="CV_Binay Hazarika.pdf" download>
+        📄 Download PDF Resume
+      </a>
+    </div>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="resume-item">
+        <div class="entry-title">Web Developer & IT Professional</div>
+        <div class="entry-meta">2010 - Present | Various IT Roles</div>
+        <div class="entry-desc">
+          With 14 years of experience in different IT roles, I've developed expertise in creating user-friendly web applications and maintaining digital solutions. My focus is on building simple, effective tools that solve real problems.
+        </div>
+      </div>
+      
+      <div class="resume-item">
+        <div class="entry-title">Website Maintenance Specialist</div>
+        <div class="entry-meta">August 2020 - Present | Official Website</div>
+        <div class="entry-desc">
+          Currently maintaining an official website, ensuring optimal performance and user experience while implementing new features and improvements. Responsible for content updates, security maintenance, and performance optimization.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="education-item">
+        <div class="entry-title">Information Technology</div>
+        <div class="entry-meta">Graduated 2010 | University Degree</div>
+        <div class="entry-desc">
+          Completed my graduation in Information Technology, where I developed a strong foundation in computer science principles and began my journey in web development and software engineering.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <ul class="skill-list">
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React.js</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Node.js</li>
+            <li>Database Management</li>
+            <li>API Development</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Tools & Technologies</h3>
+          <ul class="skill-list">
+            <li>Git Version Control</li>
+            <li>VS Code</li>
+            <li>Web Development Tools</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <ul class="skill-list">
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Continuous Learning</li>
+            <li>User Experience Focus</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects & Achievements</h2>
+      <div class="resume-item">
+        <div class="entry-title">Personal Portfolio Website</div>
+        <div class="entry-meta">2024 | Personal Project</div>
+        <div class="entry-desc">
+          Developed a modern, responsive portfolio website showcasing my skills and experience. Features include interactive elements, smooth animations, and mobile-first design approach.
+        </div>
+      </div>
+      
+      <div class="resume-item">
+        <div class="entry-title">Web Application Development</div>
+        <div class="entry-meta">Various Projects | Work & Personal</div>
+        <div class="entry-desc">
+          Created multiple web applications focusing on simplicity and usability. Emphasized clean code, responsive design, and user-friendly interfaces.
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><strong>Email:</strong> <a href="mailto:binayhazarika@gmail.com">binayhazarika@gmail.com</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/hazaribi" target="_blank">github.com/hazaribi</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/binay-hazarika-14a19619a/" target="_blank">linkedin.com/in/binay-hazarika</a></p>
+    </div>
+
+    <div class="action-buttons">
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      <a href="about.html" class="btn btn-secondary">Learn More About Me</a>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    // Add interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add click effects to buttons
+      const buttons = document.querySelectorAll('.btn, .download a');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          // Create ripple effect
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.animation = 'ripple 0.6s linear';
+          ripple.style.pointerEvents = 'none';
+          
+          this.style.position = 'relative';
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+      
+      // Add hover effects to resume items
+      const resumeItems = document.querySelectorAll('.resume-item, .education-item');
+      resumeItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateX(5px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateX(0)';
+        });
+      });
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

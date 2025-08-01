@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Contact - Binay Hazarika</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      body {
+        background: #f7f7f9;
+        color: #222;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 480px;
+        margin: 60px auto 0 auto;
+        background: #fff;
+        padding: 38px 28px;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        text-align: center;
+      }
+      h1 {
+        color: #6c63ff;
+        margin-bottom: 18px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      input, textarea {
+        padding: 10px;
+        border: 1px solid #d3d3d3;
+        border-radius: 6px;
+        font-size: 1em;
+      }
+      button {
+        padding: 10px 0;
+        border: none;
+        background: #6c63ff;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #5246e2;
+      }
+      .or {
+        margin: 26px 0 12px 0;
+        color: #999;
+      }
+      .socials {
+        margin-top: 18px;
+      }
+      .socials a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #6c63ff;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="main.js"></script>
+    <div class="container">
+      <h1>Contact Me</h1>
+      <!-- Simple Contact Form (requires backend service to function) -->
+      <form name="contactForm" action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+        </form>
+      <div class="or">or</div>
+      <!-- List your email or socials -->
+      <div>
+        <p>Email: <a href="mailto:your.email@example.com">binayhazarika@gmail.com</a></p>
+        <div class="socials">
+          <a href="https://github.com/hazaribi" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/binay-hazarika-14a19619a/" target="_blank">LinkedIn</a>
+          <a href="contact.html">Contact</a>
+          <a href="project.html">Projects</a>
+          <!-- Add more links as needed -->
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+   </body>
+</html>
