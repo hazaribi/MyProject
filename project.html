@@ -165,42 +165,28 @@
     <h1>Projects</h1>
     <p>Explore my web application projects below. More coming soon!</p>
 
-    <div class="project-section" id="calculator">
-      <div class="project-title">Calculator Application</div>
-      <div class="project-desc">A simple, interactive calculator for basic arithmetic operations.</div>
-      <div id="calc-app" style="max-width:320px;margin:0 auto;">
-        <input type="text" id="calc-display" readonly style="width:100%;font-size:1.2em;padding:10px;margin-bottom:10px;text-align:right;border-radius:6px;border:1px solid #d3d3d3;">
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-          <button type="button" class="btn" onclick="calcInput('7')">7</button>
-          <button type="button" class="btn" onclick="calcInput('8')">8</button>
-          <button type="button" class="btn" onclick="calcInput('9')">9</button>
-          <button type="button" class="btn" onclick="calcInput('/')">÷</button>
-          <button type="button" class="btn" onclick="calcInput('4')">4</button>
-          <button type="button" class="btn" onclick="calcInput('5')">5</button>
-          <button type="button" class="btn" onclick="calcInput('6')">6</button>
-          <button type="button" class="btn" onclick="calcInput('*')">×</button>
-          <button type="button" class="btn" onclick="calcInput('1')">1</button>
-          <button type="button" class="btn" onclick="calcInput('2')">2</button>
-          <button type="button" class="btn" onclick="calcInput('3')">3</button>
-          <button type="button" class="btn" onclick="calcInput('-')">−</button>
-          <button type="button" class="btn" onclick="calcInput('0')">0</button>
-          <button type="button" class="btn" onclick="calcInput('.')">.</button>
-          <button type="button" class="btn" onclick="calcCalculate()">=</button>
-          <button type="button" class="btn" onclick="calcInput('+')">+</button>
-          <button type="button" class="btn" onclick="calcClear()" style="grid-column:span 4;background:#eee;color:#764ba2;">C</button>
-        </div>
-      </div>
+    <div class="project-section">
+      <h2 class="project-title">Remote Work Platform</h2>
+      <p class="project-desc">Frontend: <a href="https://github.com/hazaribi/Remote-Work-Frontend" target="_blank">https://github.com/hazaribi/Remote-Work-Frontend</a> | Backend: <a href="https://github.com/hazaribi/Remote-Work-Backend" target="_blank">https://github.com/hazaribi/Remote-Work-Backend</a> | App: <a href="https://remote-work-frontend.vercel.app/" target="_blank">https://remote-work-frontend.vercel.app/</a></p>
+      <p class="project-desc"><strong>Tech Stack:</strong> React, JavaScript, Node.js, Express.js, PostgreSQL, REST API, Render</p>
+      <ul>
+        <li>Developed job and task management modules for remote teams</li>
+        <li>Engineered RESTful APIs for secure, scalable data interactions</li>
+        <li>Integrated frontend and backend for real-time collaboration</li>
+        <li>Optimized PostgreSQL database for multi-user operations</li>
+      </ul>
     </div>
 
-    <div class="project-section" id="quiz">
-      <div class="project-title">Quiz Application</div>
-      <div class="project-desc">Test your knowledge with a fun quiz!</div>
-      <div id="quiz-app" style="max-width:400px;margin:0 auto;">
-        <div id="quiz-question" style="margin-bottom:12px;font-weight:bold;"></div>
-        <div id="quiz-options" style="margin-bottom:12px;"></div>
-        <button id="quiz-next" class="btn btn-primary" style="display:none;">Next</button>
-        <div id="quiz-result" style="margin-top:12px;font-weight:bold;"></div>
-      </div>
+    <div class="project-section">
+      <h2 class="project-title">CloudVault – Secure Cloud Storage (Google Drive Clone)</h2>
+      <p class="project-desc">Frontend: <a href="https://github.com/hazaribi/cloudvault-frontend" target="_blank">https://github.com/hazaribi/cloudvault-frontend</a> | Backend: <a href="https://github.com/hazaribi/google-drive-clone-backend-secure" target="_blank">https://github.com/hazaribi/google-drive-clone-backend-secure</a> | App: <a href="https://cloudvault-sable.vercel.app" target="_blank">https://cloudvault-sable.vercel.app</a></p>
+      <p class="project-desc"><strong>Tech Stack:</strong> React, Next.js (App Router), TypeScript, Tailwind CSS, Node.js, Express.js, Supabase (PostgreSQL & Storage), JWT, bcrypt, Vercel, Railway</p>
+      <ul>
+        <li>Built end-to-end authentication (sign-up, login, JWT-based session, protected routes)</li>
+        <li>Implemented secure backend APIs with Supabase RLS and JWT</li>
+        <li>Designed database schema and integrated Supabase storage</li>
+        <li>Delivered responsive and dynamic UI for seamless user experience</li>
+      </ul>
     </div>
   </div>
 
@@ -233,96 +219,6 @@
       }
     `;
     document.head.appendChild(style);
-
-    // Calculator logic
-    let calcValue = '';
-    function calcInput(val) {
-      calcValue += val;
-      document.getElementById('calc-display').value = calcValue;
-    }
-    function calcClear() {
-      calcValue = '';
-      document.getElementById('calc-display').value = '';
-    }
-    function calcCalculate() {
-      try {
-        // eslint-disable-next-line no-eval
-        let result = eval(calcValue.replace(/[^-+*/.\d]/g, ''));
-        document.getElementById('calc-display').value = result;
-        calcValue = result.toString();
-      } catch {
-        document.getElementById('calc-display').value = 'Error';
-        calcValue = '';
-      }
-    }
-
-    // Quiz logic
-    const quizQuestions = [
-      {
-        q: 'What is the nature of CMD Dr Subhash Khanna, Swagat Hospital?',
-        options: ['Very Kind', 'Honest', 'lustful (Who is Eager for Romantic or Sexual Attention)', 'Down to Earth'],
-        answer: 2
-      },
-      {
-        q: 'Who is Dr Ayusman Khanna, Director of Swagat Hospital?',
-        options: ['Professional', 'A Psycho Director', 'Friendly', 'Well Wisher'],
-        answer: 1
-      },
-      {
-        q: 'Describe in One Word about Managing Director Admin Dr. Swagata Khanna, Swagat Hospital?',
-        options: ['Egotistical', 'Misanthrope', 'Stingy', 'Dictator'],
-        answer: 3
-      },
-      {
-        q: 'Do You Know COO (urph) Ustaad/Dr/Dealer/Hawas Ka Pujari Jahidur Rahman?',
-        options: ['Chota Boss', 'Chapri', 'Mahapurush', 'Mannerless'],
-        answer: 3
-      },
-      {
-        q: 'What is The Most Common Dialogue of HR Manager Leena Das?',
-        options: ['Will Ask Madam and Let You Know', 'Will Help You', 'Trying My Best', 'No No & No'],
-        answer: 0
-      },
-      {
-        q: 'How does DGM Mrs Reenu Gogoi look like?',
-        options: ['Madhuri Dixit', 'Aswariya Rai', 'Chapri', 'Katrina Kaif'],
-        answer: 2
-      }
-    ];
-    let quizIndex = 0, quizScore = 0;
-    function showQuizQuestion() {
-      const q = quizQuestions[quizIndex];
-      document.getElementById('quiz-question').textContent = q.q;
-      const opts = q.options.map((opt, i) =>
-        `<button class="btn" style="margin:4px 0;width:100%;" onclick="selectQuizOption(${i})">${opt}</button>`
-      ).join('');
-      document.getElementById('quiz-options').innerHTML = opts;
-      document.getElementById('quiz-next').style.display = 'none';
-      document.getElementById('quiz-result').textContent = '';
-    }
-    function selectQuizOption(i) {
-      const q = quizQuestions[quizIndex];
-      if (i === q.answer) {
-        document.getElementById('quiz-result').textContent = 'Correct!';
-        quizScore++;
-      } else {
-        document.getElementById('quiz-result').textContent = 'Wrong!';
-      }
-      Array.from(document.querySelectorAll('#quiz-options .btn')).forEach(btn => btn.disabled = true);
-      document.getElementById('quiz-next').style.display = 'inline-block';
-    }
-    document.getElementById('quiz-next').onclick = function() {
-      quizIndex++;
-      if (quizIndex < quizQuestions.length) {
-        showQuizQuestion();
-      } else {
-        document.getElementById('quiz-app').innerHTML = `<div style='font-size:1.2em;'>Quiz finished!<br>Your score: ${quizScore} / ${quizQuestions.length}</div>`;
-      }
-    };
-    // Initialize quiz on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      if (document.getElementById('quiz-app')) showQuizQuestion();
-    });
   </script>
 </body>
 </html>
